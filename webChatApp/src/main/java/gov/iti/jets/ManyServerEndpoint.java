@@ -22,48 +22,56 @@ public class ManyServerEndpoint {
     private final Set<Session> sessions = new HashSet<>();
 
     @OnOpen
-    public void onOpen(Session session){
+    public void onOpen(Session session) {
 
-        System.out.println("connection stablished");
+        // System.out.println("connection stablished");
 
         sessions.add(session);
-
+        // System.out.println("hey amira");
         List<String> connectedClients = new ArrayList<>();
-        for (Session acsession : sessions) {
-            try {
-                System.out.println(builJSONFromObject(acsession));
-                connectedClients.add(builJSONFromObject(acsession));
-                session.getBasicRemote().sendText(builJSONFromObject(acsession));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        // for (Session acsession : sessions) {
+        //     try {
+        //         System.out.println("session " + acsession);
+        //         System.out.println(acsession.getRequestParameterMap().get("name"));
+        //         System.out.println(acsession.getRequestParameterMap().get("gender"));
+        //         System.out.println("json " + builJSONFromObject(acsession));
+        //         connectedClients.add(builJSONFromObject(acsession));
+        //         System.out.println("hey");
+        //         session.getBasicRemote().sendText(builJSONFromObject(acsession));
+        //     } catch (IOException e) {
+        //         e.printStackTrace();
+        //     }
+        // }
     }
 
-    private String builJSONFromObject(Session session) {
-        HttpSession se = (HttpSession)session;
-        JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
-        jsonBuilder.add("name", se.getAttribute("name").toString())
-        .add("gender", se.getAttribute("gender").toString());
-        return jsonBuilder.build().toString();
-        }
+    // private String builJSONFromObject(Session session) {
+    //     System.out.println("hey marwa");
+    //     HttpSession se = (HttpSession) session;
+    //     System.out.println("name " + se.getAttribute("name"));
+    //     System.out.println("gender " + se.getAttribute("gender"));
+    //     JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
+    //     jsonBuilder.add("name", se.getAttribute("name").toString())
+    //             .add("gender", se.getAttribute("gender").toString());
+    //     return jsonBuilder.build().toString();
+    // }
 
     @OnMessage
-    public void onMessage(String message, Session session){
+    public void onMessage(String message, Session session) {
 
-        for (Session acsession : sessions) {
-            try {
-                acsession.getBasicRemote().sendText(message);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        System.out.println("message"+message );
+
+        // for (Session acsession : sessions) {
+        //     try {
+        //         acsession.getBasicRemote().sendText(message);
+        //     } catch (IOException e) {
+        //         e.printStackTrace();
+        //     }
+        // }
     }
 
     @OnClose
-    public void onClose(Session session){
+    public void onClose(Session session) {
         sessions.remove(session);
     }
-
 
 }

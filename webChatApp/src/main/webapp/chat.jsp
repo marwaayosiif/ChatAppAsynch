@@ -27,6 +27,7 @@
         </form>
     </div>
     <div id="wrapper">
+        
         <ul id="users">
             <li>
                 <img src="resources/man.png">
@@ -43,24 +44,11 @@
             </li> -->
         </ul>
     </div>
+    <input type="hidden" id="name" value="${name}">
+    <input type="hidden" id="gender" value="${gender}">
+    <script src="chat.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        // jQuery Document
-        var webSocket;
-        $(document).ready(function () {
-            webSocket = new WebSocket('ws://localhost:9090/webApp/endpointServer');
-            webSocket.onopen = onOpen;
-            webSocket.onmessage = onMessage;
-        });
-
-        function onOpen() {
-            console.log("hiiiiiiiiiiiii");
-        }
-
-        function onMessage(event) {
-            console.log(event.data);
-        }
-    </script>
+   
 </body>
 
 </html>
