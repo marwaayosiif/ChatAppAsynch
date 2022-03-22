@@ -21,10 +21,6 @@ public class loginServlet extends HttpServlet{
         System.out.println(name+ " "+gender);
         session.setAttribute("name", name);
         session.setAttribute("gender", gender);
-        // request.setAttribute("name", name);
-        // request.setAttribute("gender", gender);
-        // RequestDispatcher requestDispatcher = request.getRequestDispatcher("chat.jsp");
-        // requestDispatcher.forward(request, response);
         response.sendRedirect("chat.jsp");
     }
 }
