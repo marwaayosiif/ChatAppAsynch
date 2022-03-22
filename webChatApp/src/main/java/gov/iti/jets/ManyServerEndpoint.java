@@ -23,7 +23,7 @@ import jakarta.websocket.server.ServerEndpoint;
 public class ManyServerEndpoint {
 
     static private final Set<Session> sessions = new HashSet<>();
-    static private final Map<Session,String> mapOfClient = new HashMap<>();
+    static private final Map<Session, String> mapOfClient = new HashMap<>();
 
     @OnOpen
     public void onOpen(Session session) {
@@ -31,7 +31,7 @@ public class ManyServerEndpoint {
         System.out.println("connection stablished");
 
         sessions.add(session);
-        
+
         for (String client : mapOfClient.values()) {
             try {
                 System.out.println("conncted client: " + client);
@@ -46,11 +46,8 @@ public class ManyServerEndpoint {
     @OnMessage
     public void onMessage(String message, Session session) {
 
-        System.out.println("message" + message);
-        if (message.contains("gender")) {
-            System.out.println("from if onMessage");
+        if (!message.contains("message")) {
             mapOfClient.put(session, message);
-            System.out.println(sessions.size());
             for (Session acsession : sessions) {
                 if (!session.equals(acsession)) {
                     try {
@@ -65,7 +62,7 @@ public class ManyServerEndpoint {
         else {
             for (Session acsession : sessions) {
                 try {
-                    acsession.getBasicRemote().sendText(message);
+                    acsession.getBasicRemote().sendText("a"+message);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -78,8 +75,7 @@ public class ManyServerEndpoint {
         sessions.remove(session);
         for (Session acsession : sessions) {
             try {
-                acsession.getBasicRemote().sendText("0"+mapOfClient.get(session));
-                System.out.println("yarabb2a");
+                acsession.getBasicRemote().sendText("0" + mapOfClient.get(session));
             } catch (IOException e) {
                 e.printStackTrace();
             }
