@@ -18,9 +18,11 @@ public class loginServlet extends HttpServlet{
         HttpSession session = request.getSession(true);
         String name = request.getParameter("name");
         String gender = request.getParameter("gender");
+        String sessionId = session.getId();
         System.out.println(name+ " "+gender);
         session.setAttribute("name", name);
         session.setAttribute("gender", gender);
+        session.setAttribute("sessionId", session.getId());
         response.sendRedirect("chat.jsp");
     }
 }

@@ -18,7 +18,7 @@
     <div id="wrapper">
         <div id="menu">
             <p class="welcome">Welcome, ${name} <b></b></p>
-            <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
+            <p class="logout"><a onclick="webSocket.close()" id="exit" href="index.jsp">Exit Chat</a></p>
         </div>
 
         <div id="chatbox"></div>
@@ -29,13 +29,14 @@
         </form>
     </div>
 
-    <div id="wrapper">
+    <div id="wrapper1" >
         <ul id="users">
             
         </ul>
     </div>
     <input type="hidden" id="name" value="${name}">
     <input type="hidden" id="gender" value="${gender}">
+    <input type="hidden" id="sessionId" value="${sessionId}">
 
 </body>
 
