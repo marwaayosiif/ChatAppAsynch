@@ -19,6 +19,6 @@ public class loginServlet extends HttpServlet{
         System.out.println(name+ " "+gender);
         session.setAttribute("name", name);
         session.setAttribute("gender", gender);
-        response.sendRedirect("");
+        response.sendRedirect("chat.jsp");
     }
 }

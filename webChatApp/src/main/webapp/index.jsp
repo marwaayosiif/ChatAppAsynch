@@ -20,7 +20,7 @@
         </div>
         <!-------------- First page main content ----------->
         <div data-role="main" class="ui-content">
-            <form method="post" action="/login" data-ajax="false">
+            <form method="post" action="login" data-ajax="false">
                 <label for="name">Name : <span>*</span></label>
                 <input type="text" name="name" id="name" placeholder="Name">
                 
