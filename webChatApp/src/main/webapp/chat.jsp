@@ -21,11 +21,13 @@
             <p class="logout"><a onclick="webSocket.close()" id="exit" href="index.jsp">Exit Chat</a></p>
         </div>
 
-        <div id="chatbox"></div>
+        <div id="chatbox">
+
+        </div>
 
         <form name="message" action="">
             <input name="usermsg" type="text" id="usermsg" />
-            <input name="submitmsg" type="submit" id="submitmsg" value="Send" />
+            <input name="submitmsg" onclick="sendMessage()" type="submit" id="submitmsg" value="Send" />
         </form>
     </div>
 

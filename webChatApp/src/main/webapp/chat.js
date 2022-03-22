@@ -49,17 +49,11 @@ function addElement(element) {
 
 }
 
-function removeElement(element) {
-    document.getElementById("wrapper1").classList.remove("d-none")
-    if (element.gender === "female") {
-        $("#users").append(
-            $('<li><img src="resources/woman.png">' + element.name + '</li>')
-        );
-    } else {
-        $("#users").append(
-
-            $('<li><img src="resources/man.png">' + element.name + '</li>')
-        );
-    }
-
+function sendMessage() {
+    var name = $("#name").val();
+    var gender = $("#gender").val();
+    var sessionId = $("#sessionId").val();
+    var message = $("#usermsg").val()
+    var objJson = {"sessionId": sessionId, "name": name, "gender": gender , "message":message }
+    webSocket.send(objJson);
 }
