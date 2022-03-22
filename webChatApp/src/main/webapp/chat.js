@@ -26,6 +26,10 @@ function messageSocket(event) {
         var jsonClient = JSON.parse(string);
         console.log(jsonClient)
         document.getElementById(jsonClient.sessionId).remove()
+        console.log(document.getElementsByTagName("li").length)
+        if(document.getElementsByTagName("li").length == 0){
+            document.getElementById("wrapper1").style.display = "none";
+        }
         
     }else{
         var jsonClient = JSON.parse(event.data);
@@ -35,7 +39,7 @@ function messageSocket(event) {
 }
 
 function addElement(element) {
-    document.getElementById("wrapper1").classList.remove("d-none")
+    document.getElementById("wrapper1").style.removeProperty("display")
     if (element.gender === "female") {
         $("#users").append(
             $('<li id='+element.sessionId+'><img src="resources/woman.png">' + element.name + '</li>')

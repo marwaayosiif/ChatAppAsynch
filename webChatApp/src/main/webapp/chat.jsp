@@ -31,8 +31,8 @@
         </form>
     </div>
 
-    <div id="wrapper1" >
-        <ul id="users">
+    <div id="wrapper1" style="display: none;">
+        <ul id="users" style="list-style-type: none;">
             
         </ul>
     </div>
