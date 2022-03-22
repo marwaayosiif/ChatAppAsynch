@@ -1,4 +1,4 @@
-+package gov.iti.jets;
+package gov.iti.jets;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,26 +16,30 @@ import jakarta.websocket.Session;
 import jakarta.websocket.server.ServerEndpoint;
 
 @ApplicationScoped
-@ServerEndpoint("/server")
+@ServerEndpoint("/endpointServer")
 public class ManyServerEndpoint {
 
     private final Set<Session> sessions = new HashSet<>();
 
     @OnOpen
     public void onOpen(Session session){
+
+        System.out.println("connection stablished");
+
         sessions.add(session);
 
         List<String> connectedClients = new ArrayList<>();
         for (Session acsession : sessions) {
             try {
+                System.out.println(builJSONFromObject(acsession));
                 connectedClients.add(builJSONFromObject(acsession));
+                session.getBasicRemote().sendText(builJSONFromObject(acsession));
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        session.getBasicRemote().sendText(connectedClients);
     }
-    
+
     private String builJSONFromObject(Session session) {
         HttpSession se = (HttpSession)session;
         JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
