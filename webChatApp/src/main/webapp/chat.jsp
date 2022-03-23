@@ -18,20 +18,20 @@
     <div id="wrapper">
         <div id="menu">
             <p class="welcome">Welcome, ${name} <b></b></p>
-            <p class="logout"><a onclick="webSocket.close()" id="exit" href="index.jsp">Exit Chat</a></p>
+            <p class="logout"><a href="/webApp/index.jsp" onclick="webSocket.close()" id="exit">Exit Chat</a></p>
         </div>
 
         <div id="chatbox">
-
+           
         </div>
 
-            <input name="usermsg" type="text" id="usermsg" />
-            <input name="submitmsg" onclick="sendMessage()" type="button" id="submitmsg" value="Send" />
+        <input name="usermsg" type="text" id="usermsg" />
+        <input name="submitmsg" onclick="sendMessage()" type="button" id="submitmsg" value="Send" />
     </div>
 
     <div id="wrapper1" style="display: none;">
         <ul id="users" style="list-style-type: none;">
-            
+
         </ul>
     </div>
     <input type="hidden" id="name" value="${name}">

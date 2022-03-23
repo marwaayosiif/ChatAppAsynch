@@ -36,32 +36,34 @@ function messageSocket(event) {
     }
 
 }
+$("a").attr("href", "webApp/index.jsp")
 
 function addElement(element, flag = null) {
-
+    var data =element.date.split("\(")
     if (flag == null) {
-
+        
         document.getElementById("wrapper1").style.removeProperty("display")
         if (element.gender === "female") {
             $("#users").append(
-                $('<li id=' + element.sessionId + '><img src="resources/woman.png"><div>' + element.name+'</div><div>'+ element.date + '</div></li>')
+                $('<li id='+element.sessionId+'><div style="display:inline-block;"><img src="resources/woman.png"></div><div style="display:inline-block;">' +element.name +'<br><div style="font-size:10px; color:#808080">'+data[0] +'<br>'+data[1]+'</div></div></li><br>')
             );
         } else {
+            
             $("#users").append(
-
-                $('<li id=' + element.sessionId + '><img src="resources/man.png"><div>' + element.name+'</div><div>'+ element.date + '</div></li>')
+                
+                $('<li id='+element.sessionId+'><div style="display:inline-block;"><img src="resources/man.png"></div><div style="display:inline-block;">' +element.name+'<br><div style="font-size:10px; color:#808080">'+data[0] +'<br>'+data[1]+'</div></div></li><br>')
             );
         }
 
     } else {
         if (element.gender === "female") {
             $("#chatbox").append(
-                $('<div class="d-flex"><img src="resources/woman.png"><div><div>' + element.message + '</div><div>' + element.date + '</div><div>' + element.name + '</div></div></div>')
+                $('<div style="display:inline-block;"><img src="resources/woman.png"></div><div style="display:inline-block;">'+element.message+'<br> <div style="font-weight:bold">' +element.name+'</div>  <div style="font-size:10px; color:#808080">'+data[0] +'<br>'+data[1]+'</div></div><br><br>')
             );
         } else {
             $("#chatbox").append(
 
-                $('<div class="d-flex"><img src="resources/man.png"><div><div>' + element.message + '</div><div>' + element.date + '</div><div>' + element.name + '</div></div></div>')
+                $('<div style="display:inline-block;"><img src="resources/man.png"></div><div style="display:inline-block;">'+element.message+'<br> <div style="font-weight:bold">' +element.name+'</div>  <div style="font-size:10px; color:#808080">'+data[0] +'<br>'+data[1]+'</div></div><br><br>')
             );
         }
     }
