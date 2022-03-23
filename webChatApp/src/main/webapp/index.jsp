@@ -20,9 +20,9 @@
         </div>
         <!-------------- First page main content ----------->
         <div data-role="main" class="ui-content">
-            <form method="post" action="login" data-ajax="false">
+            <form id="loginForm" method="post" action="login" data-ajax="false">
                 <label for="name">Name : <span>*</span></label>
-                <input type="text" name="name" id="name" placeholder="Name">
+                <input type="text" name="name" id="name" placeholder="Name" required>
 
                 <fieldset data-role="controlgroup">
                     <legend>Gender:</legend>

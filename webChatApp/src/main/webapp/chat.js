@@ -55,11 +55,11 @@ function addElement(element, flag = null) {
     } else {
         if (element.gender === "female") {
             $("#chatbox").append(
-                $('<div class="row"><div class="col-1 m-3"><img src="resources/woman.png"></div><div class="col-9">'+element.message+'<br> <div style="font-weight:bold">' +element.name+'</div>  <div style="font-size:10px; color:#808080">'+data[0] +'<br>'+data[1]+'</div></div></div>')
+                $('<div class="row border border-5 my-1 py-1"><div class="col-1 m-3"><img src="resources/woman.png"></div><div class="col-9">'+element.message+'<br> <div style="font-weight:bold">' +element.name+'</div>  <div style="font-size:10px; color:#808080">'+data[0] +'<br>'+data[1]+'</div></div></div>')
             );
         } else {
             $("#chatbox").append(
-                $('<div class="row"><div class="col-1 m-3"><img src="resources/man.png"></div><div class="col-9">'+element.message+'<br> <div style="font-weight:bold">' +element.name+'</div>  <div style="font-size:10px; color:#808080">'+data[0] +'<br>'+data[1]+'</div></div></div>')
+                $('<div class="row border border-5 my-1 py-1"><div class="col-1 m-3"><img src="resources/man.png"></div><div class="col-9">'+element.message+'<br> <div style="font-weight:bold">' +element.name+'</div>  <div style="font-size:10px; color:#808080">'+data[0] +'<br>'+data[1]+'</div></div></div>')
             );
         }
     }
