@@ -84,7 +84,7 @@
           <username>admin</username>
           <password>admin</password>
           <url>http://localhost:9090/manager/text</url>
-          <path>/webApp</path>
+          <path>/worker</path>
         </configuration>
       </plugin>
 
