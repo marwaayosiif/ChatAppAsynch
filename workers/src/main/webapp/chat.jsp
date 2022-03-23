@@ -14,29 +14,20 @@
 
 </head>
 
-<body>
+<body onload="startWorker()">
 
     <div id="wrapper">
         <div id="menu">
-            <p class="welcome">Welcome, ${name} <b></b></p>
-            <p class="logout"><a href="/webApp/index.jsp" onclick="webSocket.close()" id="exit">Exit Chat</a></p>
+            <p class="welcome">Welcome, ${name}</p>
+            <p class="logout"><a href="/webApp/index.jsp" onclick="stopWorker()" id="exit">Exit Chat</a></p>
         </div>
 
         <div id="chatbox">
 
         </div>
-        <label for="name">Name : <span>*</span></label>
-        <input type="text" name="name" id="name" placeholder="Name">
-
-        <fieldset data-role="controlgroup">
-            <legend>Gender:</legend>
-            <label for="male">Male</label>
-            <input type="radio" name="gender" id="male" value="male" checked>
-            <label for="female">Female</label>
-            <input type="radio" name="gender" id="female" value="female">
-        </fieldset>
+        
         <input name="usermsg" type="text" id="usermsg" />
-        <input name="submitmsg" onclick="sendMessage()" type="button" id="submitmsg" value="Send" />
+        <input name="submitmsg" type="button" onclick="sendMsg()" id="submitmsg" value="Send" />
     </div>
 
     <div id="wrapper1" style="display: none;">
@@ -44,9 +35,10 @@
 
         </ul>
     </div>
-    <!-- <input type="hidden" id="name" value="${name}">
+    <input type="hidden" id="name" value="${name}">
     <input type="hidden" id="gender" value="${gender}">
-    <input type="hidden" id="sessionId" value="${sessionId}"> -->
+    <input type="hidden" id="date" value="${date}">
+    <input type="hidden" id="sessionId" value="${sessionId}">
 
 </body>
 
