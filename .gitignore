@@ -1,2 +1,13 @@
 
 webChatApp/target/classes/gov/iti/jets/loginServlet.class
+webChatApp/target/webChatApp/WEB-INF/classes/gov/iti/jets/loginServlet.class
+webChatApp/target/webChatApp/WEB-INF/classes/gov/iti/jets/ManyServerEndpoint.class
+webChatApp/target/webChatApp/WEB-INF/lib/jakarta.json-api-2.0.1.jar
+webChatApp/target/webChatApp/WEB-INF/lib/jakarta.json-2.0.1.jar
+*.jar
+webChatApp/target/webChatApp/WEB-INF/web.xml
+*.png
+*.war
+*.class
+*.lst
+*.properties
